@@ -3,9 +3,11 @@ import json
 def handler(request, context):
     return {
         "statusCode": 200,
-        "headers": {"Content-Type": "application/json"},
+        "headers": {
+            "Content-Type": "application/json"
+        },
         "body": json.dumps({
-            "status": "success",
-            "message": "Movie Detector API is working"
+            "status": "ok",
+            "message": "Movie Detector backend is running"
         })
     }
