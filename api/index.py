@@ -1,16 +1,11 @@
-from http.server import BaseHTTPRequestHandler
 import json
 
-class handler(BaseHTTPRequestHandler):
-
-    def do_GET(self):
-        self.send_response(200)
-        self.send_header("Content-type", "application/json")
-        self.end_headers()
-
-        response = {
+def handler(request, context):
+    return {
+        "statusCode": 200,
+        "headers": {"Content-Type": "application/json"},
+        "body": json.dumps({
             "status": "success",
-            "message": "Movie Detector API is running on Vercel"
-        }
-
-        self.wfile.write(json.dumps(response).encode())
+            "message": "Movie Detector API is working"
+        })
+    }
